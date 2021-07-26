@@ -9,6 +9,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+
 	"sigs.k8s.io/kustomize/api/internal/utils"
 	"sigs.k8s.io/kustomize/api/provider"
 	. "sigs.k8s.io/kustomize/api/resource"
@@ -310,6 +311,7 @@ spec:
 		},
 		{
 			name: "Order changes when patch has bar only",
+			skip: true, // unintentional behavior fixed by cherry-picking https://github.com/kubernetes-sigs/kustomize/pull/4046
 			patch: `apiVersion: v1
 kind: Pod
 metadata:
